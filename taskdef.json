@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "myapp-container",
-      "image": "<IMAGE1_NAME>",
+      "image": "132831332261.dkr.ecr.us-east-1.amazonaws.com/myapp-repo",
       "portMappings": [
         {
           "containerPort": 3000,
@@ -21,7 +21,10 @@
         }
       },
       "healthCheck": {
-        "command": ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"],
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:3000/health || exit 1"
+        ],
         "interval": 30,
         "timeout": 5,
         "retries": 3,
@@ -35,9 +38,11 @@
       ]
     }
   ],
-  "requiresCompatibilities": ["FARGATE"],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
   "cpu": "256",
   "memory": "512",
-  "executionRoleArn": "arn:aws:iam::<account_id>:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::<account_id>:role/ecsTaskRole"
+  "executionRoleArn": "arn:aws:iam::132831332261:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::132831332261:role/ecsTaskRole"
 }
